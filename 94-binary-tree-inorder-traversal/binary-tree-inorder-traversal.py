@@ -15,6 +15,10 @@ class Solution:
             inorder(node.right)
         inorder(root)
         return res'''
+
+        '''more easiest approach 
+
+
         res=[]
         st=[]
         curr=root
@@ -25,4 +29,23 @@ class Solution:
             curr=st.pop()
             res.append(curr.val)
             curr=curr.right
-        return res 
+        return res '''
+
+        res=[]
+        curr=root
+        while curr:
+            if not curr.left:
+                res.append(curr.val)
+                curr=curr.right
+            else:
+                pred=curr.left
+                while pred.right and pred.right!=curr:
+                    pred=pred.right
+                if not pred.right:
+                    pred.right=curr
+                    curr=curr.left
+                else:
+                    pred.right=None
+                    res.append(curr.val)
+                    curr=curr.right
+        return res
