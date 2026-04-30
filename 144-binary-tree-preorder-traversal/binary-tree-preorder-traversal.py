@@ -15,8 +15,10 @@ class Solution:
             dfs(node.right)
         dfs(root)
         return res'''
-        # by using stack approach
-        '''stack=[root]
+        # by using stack iterative approach
+        if not root :
+            return []
+        stack=[root]
         res=[]
         while stack:
             node=stack.pop()
@@ -25,9 +27,10 @@ class Solution:
                 stack.append(node.right)
             if node.left:
                 stack.append(node.left)
-        return res'''
+        return res
+        
 
-        res=[]
+        '''res=[]
         curr=root
         while curr:
             if not curr.left:
@@ -44,5 +47,5 @@ class Solution:
                 else:
                     pred.right=None
                     curr=curr.right
-        return res
+        return res'''
         
